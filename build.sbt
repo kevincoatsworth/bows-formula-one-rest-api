@@ -1,3 +1,5 @@
+import play.sbt.routes.RoutesKeys
+
 name := """bows-formula-one-rest-api"""
 organization := "com.example"
 
@@ -13,3 +15,6 @@ libraryDependencies += "org.reactivemongo" %% "play2-reactivemongo" % "0.18.1-pl
 libraryDependencies += "org.scalactic" %% "scalactic" % "3.0.8"
 libraryDependencies += "org.scalatest" %% "scalatest" % "3.0.8" % Test
 libraryDependencies += "org.mockito" % "mockito-all" % "1.10.19" % Test
+
+routesGenerator := InjectedRoutesGenerator
+RoutesKeys.routesImport += "models.Card"
