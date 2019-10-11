@@ -1,37 +1,27 @@
-# Play Hello World Web Tutorial for Scala
+# RESTful API for Bows Formula One
 
-To follow the steps in this tutorial, you will need the correct version of Java and sbt. The template requires:
+## Information
 
-* Java Software Developer's Kit (SE) 1.8 or higher
-* sbt 0.13.15 or higher (we recommend 1.2.3) Note: if you downloaded this project as a zip file from https://developer.lightbend.com, the file includes an sbt distribution for your convenience.
+This is a Scala web application using SBT and the PlayFramework. It is built to handle Json API calls to a Mongo database using Reactive Mongo.
 
-To check your Java version, enter the following in a command window:
+To run this project, you will require an instance of Mongo running. You can also test the functionality using an application such as Postman.
 
-```bash
-java -version
-```
+As this is a PlayFramework project, I'd recommend running this API on port 9000, using sbt run in your terminal or command line.
 
-To check your sbt version, enter the following in a command window:
+To call the Endpoints below, please call them using localhost:9000 followed by the appropriate route below.
 
-```bash
-sbt sbt-version
-```
 
-If you do not have the required versions, follow these links to obtain them:
+## Routes
 
-* [Java SE](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
-* [sbt](http://www.scala-sbt.org/download.html)
+|Action|Method|Description|Endpoint|
+|------|------|-----------|--------|
+|Present Card|GET|Starts session and welcomes the user/deletes session and says Goodbye to the user or returns an error message|/presentCard/:card|
+|Find member|GET|Retrieves members information or returns an error message|/findMember/:card|
+|Register member with Json in body|POST|Registers member or returns an error message|/registerMember|
+|Check funds|GET|Returns total funds or returns an error message|/checkFunds:card|
+|Remove member|POST|Deletes member from database or returns an error message|/removeMember:card|
+|Add funds|POST|Increases the total funds or returns an error message|/addFunds/:card/:funds|
+|Transaction|POST|Decreases the total funds or returns an error message|/transaction/:card/:cost|
+|Update name|POST|Updates members name in members collection or returns an error message|/updateName/:card/:newName|
+|Update mobile number|POST|Updates members mobile number in members collection or returns an error message|/updateMobileNumber/:card/:newNumber|
 
-## Build and run the project
-
-This example Play project was created from a seed template. It includes all Play components and an Akka HTTP server. The project is also configured with filters for Cross-Site Request Forgery (CSRF) protection and security headers.
-
-To build and run the project:
-
-1. Use a command window to change into the example project directory, for example: `cd play-scala-hello-world-web`
-
-2. Build the project. Enter: `sbt run`. The project builds and starts the embedded HTTP server. Since this downloads libraries and dependencies, the amount of time required depends partly on your connection's speed.
-
-3. After the message `Server started, ...` displays, enter the following URL in a browser: <http://localhost:9000>
-
-The Play application responds: `Welcome to the Hello World Tutorial!`
